@@ -4,7 +4,6 @@
 # @Author  : LeoGo2017
 # @File    : run_all.py
 
-
 python products_Word2Vec.py
 python products_Word2Vec_features.py
 

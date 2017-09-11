@@ -15,12 +15,12 @@ from sklearn.metrics import log_loss
 from scipy.stats import mode
 
 path = "output/"
-priors = pd.read_csv(path+"order_products__prior.csv")
-train = pd.read_csv(path+"order_products__train.csv")
-test = pd .read_csv(path+"order_products__test.csv")
+priors = pd.read_csv(path + "order_products__prior.csv")
+train = pd.read_csv(path + "order_products__train.csv")
+test = pd.read_csv(path + "order_products__test.csv")
 all = train.append(test)
 
 orders = pd.read_csv(path + 'orders.csv').fillna(0)
 orders = merge_max(orders, ['user_id'], 'order_number', 'order_number_max')
-orders['order_dow_days'] = orders['order_dow'].apply(lambda x:1 if x<=1 else 0)
+orders['order_dow_days'] = orders['order_dow'].apply(lambda x: 1 if x <= 1 else 0)
 orders['order_hour_of_day'] = orders['order_hour']

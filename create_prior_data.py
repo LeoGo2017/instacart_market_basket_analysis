@@ -23,8 +23,7 @@ orders = orders[orders.eval_set == "prior"].copy()
 orders = orders.merge(train_user, on="user_id", how="left").fillna(0)
 # orders["order_number_max"]=orders.groupby("user_id").order_number.max()
 orders = merge_max(orders, ["user_id"], "order_number", "order_number_max")
-print
-orders.head(20)
+print(orders.head(20))
 
 
 def mark(a, b, c):
@@ -56,3 +55,5 @@ orders.to_csv("output/orders.csv", index=None)
 train.to_csv("output/order_products__train.csv", index=None)
 test.to_csv("output/order_products__test.csv", index=None)
 priors.to_csv("output/order_products__prior.csv", index=None)
+
+print('Successful!')
